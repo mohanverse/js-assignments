@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Counter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Counter</h1>
+      <div class="counter">
+        <button class="decrease">-</button>
+        <h1 id="number"></h1>
+        <button class="increase">+</button>
+      </div>
+      <p id="error">Error</p>
+    </div>
+  </body>
+
+  <script>
+    //write code here
+    let count = 0;
+    const number = document.getElementById("number");
+    number.innerText =0;
+    const button = document.querySelectorAll("button");
+
+    button.forEach (function (items) {
+      items.addEventListener ("click", function (val) {
+        let style = val.currentTarget.classList;
+        if (style.contains("increase")) {
+          count ++;
+        } else if (style.contains("decrease")) {
+          count --;
+        } else {
+          count = 0;
+        }
+        number.textContent = count;
+      })
+    })
+  </script>
+</html>
